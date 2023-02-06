@@ -3,7 +3,7 @@ using System;
 // Create the class.  
 // Process the text entry that is entered by the user as an input.
 public class Journal 
-{  
+{   
     // Create the member variable for the list of entries in the journal list. (Hint: the data type for this should be List<Job>, and it is  
     // probably easiest to initialize this to a new list right when you declare it) 
     public List<Entry> _entryList = new List<Entry>();  
@@ -30,26 +30,26 @@ public class Journal
         }
     } 
 
-    public string _fileName; 
+    // public string _fileName; 
     // Enter file name, save and load.
-    public void ProcessFile() 
-    { 
-        Console.WriteLine("Enter the file name: "); 
-        _fileName = Console.ReadLine(); 
+    // public void ProcessFile() 
+    // { 
+    //     Console.WriteLine("Enter the file name (file-name.txt): "); 
+    //     _fileName = Console.ReadLine(); 
 
-        // Save 
-        using (StreamWriter file = new StreamWriter(_fileName)) 
-        {   
-            foreach (Entry entry in _entryList) 
-            { 
-                // Get entry information 
-                entry.Display(); 
+    //     // Save 
+    //     using (StreamWriter file = new StreamWriter(_fileName)) 
+    //     {   
+    //         foreach (Entry entry in _entryList) 
+    //         { 
+    //             // Get entry information 
+    //             entry.Display(); 
 
-                file.WriteLine($"{entry._dateText} {entry._prompt} {entry._response}");   
-            }
-        }
-        Console.WriteLine("File saved");
-    } 
+    //             file.WriteLine($"{entry._dateText} {entry._prompt} {entry._response}");   
+    //         }
+    //     }
+    //     Console.WriteLine("File saved");
+    // } 
 
 
 } 

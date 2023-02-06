@@ -9,13 +9,8 @@ class Program
         // Create a new Journal instance 
         Journal journal = new Journal();    
 
-        File file = new File();  
- 
-        // Create a new instance of the StreamReader
-        StreamReader _fileName = new StreamReader("myfile.txt");
+        FileClass file = new FileClass();  
 
-        Entry entry = new Entry();  
-         
         while (action != 5) 
         { 
             Console.WriteLine("");
@@ -41,11 +36,11 @@ class Program
             } 
             else if (action == 3) 
             { 
-                file.LoadFromAFile(_fileName);
+                file.LoadFromAFile(journal._entryList);
             } 
             else if (action == 4) 
             { 
-                journal.ProcessFile();
+                file.ProcessFile(journal._entryList);
             } 
             else if (action == 5) 
             { 
@@ -53,9 +48,6 @@ class Program
             }
         }
 
-
-
- 
     }
 
 }

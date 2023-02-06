@@ -1,43 +1,59 @@
-using System;  
-     
-public class File 
-{    
-    // I declare the _fileName variable so I can store the file
+using System;
+
+public class FileClass
+{ 
     public string _fileName;
-    private void enterFileName() 
-    { 
-        Console.WriteLine("Enter the file name (file-name.txt): "); 
-        _fileName = Console.ReadLine();
-    } 
+    public void LoadFromAFile(List<Entry> _entryList)
+    {
+        // Code developed with the help of Dallin Olson (instructor from BYUI)
+        try
+        { 
+            Console.WriteLine("Enter the file name (file-name.txt): ");
+            string _fileName = Console.ReadLine();
 
-    public void LoadFromAFile(StreamReader _file) 
-    {  
-        // Code provided by Microsoft resources. Bro. Carter (an instructor) provided  
-        // this to his students and they shared it in a tutoring class.
-        String firstLine;
-            try
+            string[] fullList = File.ReadAllLines(_fileName); //ReadAllLines() takes all lines in a file and put it in an array
+                                                                           //ToList() converts it to a list of strings. 
+
+            for(int i = 0; i < fullList.Length; i+=3) // It iterates 3 by 3 so that we have the _dateText, _prompt and _response
             { 
-                //Read the first line of text
-                firstLine = _file.ReadLine(); 
-
-                //Continue to read until you reach end of file
-                while (firstLine != null)
-                {
-                    Console.WriteLine(firstLine); 
-                }
-                // Close the file
-                _file.Close();
-            } 
-
-            // Handling errors.
-            catch(Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
+                // Create an object  
+                Entry entry = new Entry(); 
+                entry._dateText = fullList[i]; 
+                entry._prompt = fullList[i+1]; 
+                entry._response = fullList[i+2]; 
+                _entryList.Add(entry);
             }
-            finally
+        }
+
+        // Handling errors.
+        catch (Exception e)
+        {
+            Console.WriteLine("Exception: " + e.Message);
+        }
+        finally
+        {
+            Console.WriteLine("Executing finally block.");
+        }
+
+    }
+
+    public void ProcessFile(List<Entry> _entryList)
+    {
+        Console.WriteLine("Enter the file name (file-name.txt): ");
+        _fileName = Console.ReadLine();
+
+        // Save 
+        using (StreamWriter file = new StreamWriter(_fileName, append:true)) // append appends to the file instead of overwriting the previous entry
+        {
+            foreach (Entry entry in _entryList)
             {
-                Console.WriteLine("Executing finally block.");
+                // Get entry information 
+                entry.Display();
+
+                file.WriteLine($"{entry._dateText} \n {entry._prompt} \n {entry._response}");
             }
-    } 
-} 
- 
+        }
+        Console.WriteLine("File saved");
+    }
+}
+
