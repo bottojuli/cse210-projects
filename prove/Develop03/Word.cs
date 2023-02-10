@@ -7,8 +7,10 @@ public class Word
     private bool _isHidden;
 
     // CONSTRUCTORS  
-    public Word(string scriptureListItem) { 
+    public Word(string scriptureListItem) {  
+        // Gives a value to the global _word variable.
         _word = scriptureListItem;  
+
         // This initializes the bool.
         _isHidden = false;
     } 

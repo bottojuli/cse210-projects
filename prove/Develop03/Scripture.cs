@@ -29,7 +29,6 @@ public class Scripture
         SetScripture(scripture);
     }
 
-
     // GETTERS AND SETTERS:
     // We need to set the scripture in order to be able to use it in the Program: 
     // This method is called in the Scripture constructor.
@@ -43,7 +42,7 @@ public class Scripture
         // Append words to the _listOfWords 
         foreach (string word in _wordsArray)
         {
-            // Create a Word object to call the constructor from Word class.
+            // Create a Word object to call the constructor from Word class. word is passed as a parameter. This Word constructor sets the _isHidden value to false.
             Word wrd = new Word(word);
 
             //_listOfWords[index] is a Word object.
@@ -54,7 +53,9 @@ public class Scripture
     // METHODS
     public List<Word> GetShownWords()
     {
-        List<Word> words = new List<Word>();
+        List<Word> words = new List<Word>();  
+
+        // Within the foreach conditions, word represents a temporary Word class object.
         foreach (Word word in _listOfWords)
         {
             if (word.GetHideWord() == false)
@@ -95,11 +96,11 @@ public class Scripture
             {
                 Console.Clear();
             } 
-            
+
             // This method allows me to work only with the words that are still shown and NOT hidden. 
             List<Word> words = new List<Word>();
             foreach (Word word in _listOfWords)
-            {
+            { 
                 if (word.GetHideWord() == false)
                 {
                     words.Add(word);
