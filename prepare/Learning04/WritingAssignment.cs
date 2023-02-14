@@ -10,7 +10,8 @@ public class WritingAssignment : Assignment
     public WritingAssignment(string studentName, string topic, string title): base(studentName, topic)
     {   
         // I need to give the value to the title variable because otherwise I can't reach out to it later when I  
-        // intialize an object from WritingAssignment.
+        // intialize an object from WritingAssignment. 
+        // I set the specific variables for the WritingAssignment class.
         _title = title; 
     } 
 
@@ -21,7 +22,9 @@ public class WritingAssignment : Assignment
     // To get the data you need for the method you can either make the variable protected in the base class, or you  
     // can create a public GetStudentName method to return it.
     public string GetWritingInformation() 
-    { 
+    {  
+        // If I wouldn't set _studentName as protected, I would have to call the GetStudentName method in order to have access to it.  
+        // This happens when we set an attribute as private in the base class.
         return $"{_title} by {_studentName}";
     }
 

@@ -11,9 +11,13 @@ public class MathAssignment : Assignment
 
     // Create a constructor for your class that accepts all four parameters,  
     // have it call the base class constructor to set the base class attributes that way. 
+    // NOTICE that two of the parameters are passed from the derived class to the base class. 
     public MathAssignment(string studentName, string topic,  
                         string textbookSection, string problems): base(studentName, topic)
-    {  
+    {   
+        // Here I should pass the MathAssignment specific variables 
+        _textbookSection = textbookSection; 
+        _problems = problems;
         
     } 
 
