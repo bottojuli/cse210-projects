@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {   
        // Read each line from the .txt file and stores them inside of an array (list type):
-       string[] scripturesArray = System.IO.File.ReadAllLines(@"C:\Users\Usuario\Documents\JULIETA\PATHWAY\BYU\Programming With Classes\cse210-projects\prove\Develop03\myscriptures.txt");
+       string[] scripturesArray = System.IO.File.ReadAllLines(@"myscriptures.txt");
         
        // This prints the whole scriptures string[]: 
        // System.Console.WriteLine(scripturesArray);   
