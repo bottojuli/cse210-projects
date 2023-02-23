@@ -38,25 +38,32 @@ public class Reflecting: Activity
         _startMessage = $"Hello! You are about to start the {_actName} activity. {_description}";
     }  
     public void RunReflecting() 
-    { 
-        DisplayStartMessage();  
+    {  
+        Console.WriteLine();
+        DisplayStartMessage(); 
+        Console.WriteLine();   
+
         // Give the user a time before the activity starts.
-        Console.Write("Get ready..."); 
+        Console.Write("Get ready...");  
+        Console.WriteLine();
         PauseAndShowSpinner(5000);  
 
         Console.WriteLine(); 
-        Console.WriteLine("Consider the following prompt: ");
+        Console.WriteLine("Consider the following prompt: "); 
+        Console.WriteLine(); 
+
         // Generate a random prompt from the _prompts list 
     	Console.Write($"{_prompts[rnd.Next(_prompts.Count())]}"); 
+        Console.WriteLine();  
         Console.WriteLine(); 
         Console.WriteLine("When you have something in mind, press enter to continue: "); 
-        Console.ReadLine(); 
+        Console.ReadLine();  
         Console.WriteLine("Ponder on the following questions related to that experience: "); 
         Console.WriteLine(); 
-        Console.Write("You may begin in..."); 
+        Console.Write("You may begin in...");  
 
         // Timer
-        for (int i = 5; i != 0; i--){
+        for (int i = 5; i != 0; i--){ 
                 Console.Write(i);
                 Thread.Sleep(1000); 
                 Console.Write("\b \b");
@@ -65,17 +72,17 @@ public class Reflecting: Activity
  
         // Iterate through each question in _questions
         while(_duration > 0) 
-        {
+        { 
             foreach (string question in _questions) 
             {
-            
                 Console.WriteLine(question); 
                 PauseAndShowSpinner(10000); 
                 //Console.Write("\b \b");
                 _duration -= 10; 
                 // Checks negative numbers in case the value the user types is lees than 10
                 if (_duration <= 0)
-                    break;
+                    break; 
+                Console.WriteLine();
             }   
         } 
         Console.WriteLine(); 

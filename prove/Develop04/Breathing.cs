@@ -21,24 +21,27 @@ public class Breathing: Activity
     { 
         DisplayStartMessage();  
         // Give the user a time before the activity starts.
-        Console.Write("Get ready..."); 
+        Console.Write("Get ready...");  
+        Console.WriteLine(); 
+
         PauseAndShowSpinner(5000);
         Console.WriteLine();
         while (_duration > 0){
-            Console.Write("Breath in...");
+            Console.Write("Breath in..."); 
+            Console.WriteLine();
             for (int i = 4; i != 0; i--){
                 Console.Write(i);
                 Thread.Sleep(1000); 
                 Console.Write("\b \b");
                 _duration -= 1;
-            }
+            } 
             Console.WriteLine();
             Console.Write("Breath out...");
             for (int i = 6; i != 0; i--){
                 Console.Write(i);
                 Thread.Sleep(1000); 
                 Console.Write("\b \b");
-                _duration -= 1;
+                _duration -= 1; 
             }
             Console.WriteLine();
         }

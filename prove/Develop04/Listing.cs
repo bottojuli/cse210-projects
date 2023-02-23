@@ -40,15 +40,19 @@ public class Listing: Activity
     }
     // Methods 
     public void RunListing() 
-    {  
+    {   
+        Console.WriteLine();
         SetVariables(_dateText, _prompt, _response);
         DisplayStartMessage();  
-        // Give the user a time before the activity starts.
+        Console.WriteLine();  
+
+        // Give the user a time before the activity starts. 
         Console.Write("Get ready...");   
         PauseAndShowSpinner(5000);
           
         int index = 0;  
  
+        Console.WriteLine(); 
         Console.WriteLine();
         Console.WriteLine("Enter the file name (file-name.txt): ");
         _fileName = Console.ReadLine(); 
